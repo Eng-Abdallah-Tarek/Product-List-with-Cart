@@ -45,13 +45,12 @@
           <h1>Desserts</h1>
           <div class="products">
             <div class="item">
-              <div class="image-container" data-name="Waffle with Berries">
+              <div class="image-container">
                 <img
                   class="food"
                   src="assets/images/image-waffle-desktop.jpg"
                   alt="Waffle with Berries"
                 />
-
                 <div class="add buy">
                   <img
                     class="cartImg"
@@ -68,15 +67,12 @@
               </div>
               <div class="info">
                 <h2>Waffle</h2>
-                <p>Waffle with Berries</p>
-                <p>$6.50</p>
+                <p class="name">Waffle with Berries</p>
+                <p class="price">$6.50</p>
               </div>
             </div>
             <div class="item">
-              <div
-                class="image-container"
-                data-name="Vanilla Bean Crème Brûlée"
-              >
+              <div class="image-container">
                 <img
                   class="food"
                   src="assets/images/image-creme-brulee-desktop.jpg"
@@ -98,12 +94,12 @@
               </div>
               <div class="info">
                 <h2>Crème Brûlée</h2>
-                <p>Vanilla Bean Crème Brûlée</p>
-                <p>$7.00</p>
+                <p class="name">Vanilla Bean Crème Brûlée</p>
+                <p class="price">$7.00</p>
               </div>
             </div>
             <div class="item">
-              <div class="image-container" data-name="Macaron Mix of Five">
+              <div class="image-container">
                 <img
                   class="food"
                   src="assets/images/image-macaron-desktop.jpg"
@@ -125,12 +121,12 @@
               </div>
               <div class="info">
                 <h2>Macaron</h2>
-                <p>Macaron Mix of Five</p>
-                <p>$8.00</p>
+                <p class="name">Macaron Mix of Five</p>
+                <p class="price">$8.00</p>
               </div>
             </div>
             <div class="item">
-              <div class="image-container" data-name="Classic Tiramisu">
+              <div class="image-container">
                 <img
                   class="food"
                   src="assets/images/image-tiramisu-desktop.jpg"
@@ -152,12 +148,12 @@
               </div>
               <div class="info">
                 <h2>Tiramisu</h2>
-                <p>Classic Tiramisu</p>
-                <p>$5.50</p>
+                <p class="name">Classic Tiramisu</p>
+                <p class="price">$5.50</p>
               </div>
             </div>
             <div class="item">
-              <div class="image-container" data-name="Pistachio Baklava">
+              <div class="image-container">
                 <img
                   class="food"
                   src="assets/images/image-baklava-desktop.jpg"
@@ -179,12 +175,12 @@
               </div>
               <div class="info">
                 <h2>Baklava</h2>
-                <p>Pistachio Baklava</p>
-                <p>$4.00</p>
+                <p class="name">Pistachio Baklava</p>
+                <p class="price">$4.00</p>
               </div>
             </div>
             <div class="item">
-              <div class="image-container" data-name="Lemon Meringue Pie">
+              <div class="image-container">
                 <img
                   class="food"
                   src="assets/images/image-meringue-desktop.jpg"
@@ -206,12 +202,12 @@
               </div>
               <div class="info">
                 <h2>Pie</h2>
-                <p>Lemon Meringue Pie</p>
-                <p>$5.00</p>
+                <p class="name">Lemon Meringue Pie</p>
+                <p class="price">$5.00</p>
               </div>
             </div>
             <div class="item">
-              <div class="image-container" data-name="Red Velvet Cake">
+              <div class="image-container">
                 <img
                   class="food"
                   src="assets/images/image-cake-desktop.jpg"
@@ -233,12 +229,12 @@
               </div>
               <div class="info">
                 <h2>Cake</h2>
-                <p>Red Velvet Cake</p>
-                <p>$4.50</p>
+                <p class="name">Red Velvet Cake</p>
+                <p class="price">$4.50</p>
               </div>
             </div>
             <div class="item">
-              <div class="image-container" data-name="Salted Caramel Brownie">
+              <div class="image-container">
                 <img
                   class="food"
                   src="assets/images/image-brownie-desktop.jpg"
@@ -260,12 +256,12 @@
               </div>
               <div class="info">
                 <h2>Brownie</h2>
-                <p>Salted Caramel Brownie</p>
-                <p>$4.50</p>
+                <p class="name">Salted Caramel Brownie</p>
+                <p class="price">$4.50</p>
               </div>
             </div>
             <div class="item">
-              <div class="image-container" data-name="Vanilla Panna Cotta">
+              <div class="image-container">
                 <img
                   class="food"
                   src="assets/images/image-panna-cotta-desktop.jpg"
@@ -287,8 +283,8 @@
               </div>
               <div class="info">
                 <h2>Panna Cotta</h2>
-                <p>Vanilla Panna Cotta</p>
-                <p>$6.50</p>
+                <p class="name">Vanilla Panna Cotta</p>
+                <p class="price">$6.50</p>
               </div>
             </div>
           </div>
@@ -296,6 +292,45 @@
 
         <div class="cart">
           <h1>Your Cart (0)</h1>
+          <!-- <div class="elements">
+            <div class="element">
+              <h3>Classic Tiramisu</h3>
+              <div class="info">
+                <span class="number">1×</span>
+                <span class="price">@$5.50</span>
+                <span class="total">$5.50</span>
+              </div>
+              <img src="assets/images/icon-remove-item.svg" alt="remove Item" />
+            </div>
+          </div>
+          <div class="totalPrice">
+            <h3>Order Total</h3>
+            <h2>$46.50</h2>
+          </div>
+          <div class="edges">
+            <div class="eco">
+              <img src="assets/images/icon-carbon-neutral.svg" alt="ecoImage" />
+              <p>This is a <b>carbon-neutral</b> delivery</p>
+            </div>
+            <button class="confirm">Confirm Order</button>
+          </div> -->
+          <div class="cart-content hidden">
+            <div class="elements"></div>
+            <div class="totalPrice">
+              <h3>Order Total</h3>
+              <h2>$0</h2>
+            </div>
+            <div class="edges">
+              <div class="eco">
+                <img
+                  src="assets/images/icon-carbon-neutral.svg"
+                  alt="ecoImage"
+                />
+                <p>This is a <b>carbon-neutral</b> delivery</p>
+              </div>
+              <button class="confirm">Confirm Order</button>
+            </div>
+          </div>
           <div class="imgContainer">
             <img
               class="none"
