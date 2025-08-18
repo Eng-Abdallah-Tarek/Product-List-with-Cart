@@ -1,10 +1,11 @@
 
 
 class dessert {
-   constructor(name, price, number) {
+   constructor(name, price, number, imageSrc) {
       this.name = name;
       this.price = price;
       this.number = number;
+      this.imageSrc = imageSrc
       this.total = number * price
    }
 
@@ -24,8 +25,9 @@ class App {
    #totalPrice = 0;
    #totalElement = this.#EmptyImage.closest(".cart").querySelector(".totalPrice h2");
    #cartNum = 0;
-
-
+   #confirmPrice;
+   #ConfirmButton = document.querySelector(".cart .cart-content .edges .confirm")
+   #modalShown = false;
    // .item .image-container .buy'
 
    constructor() {
@@ -35,7 +37,61 @@ class App {
       this.#CartElements.addEventListener('mouseover', this.#changeX)
       this.#CartElements.addEventListener('mouseout', this.#changeX)
       this.#CartElements.addEventListener('click', this.#deleteX.bind(this))
+      this.#ConfirmButton.addEventListener('click', this.#showModal.bind(this))
+      document.querySelector(".page .overlay").addEventListener("click", this.#hideModal.bind(this));
+
    }
+   #showModal() {
+      this.#modalShown = true;
+      this.#addCartToModal();
+      document.querySelector(".page .modal").scrollIntoView({ behavior: "smooth", block: "center" })
+      setTimeout(() => {
+         document.querySelector(".page .overlay").style.visibility = "visible";
+         document.querySelector(".page .modal").style.visibility = "visible";
+         document.querySelector(".page .modal").style.transform = `${this.#mobileMedia.matches ? "translateX(-50%)" : "translateX(-50%) translateY(-50%)"}`
+         document.querySelector(".page .overlay").style.opacity = 1;
+      }, 300)
+   }
+   #hideModal() {
+      if (this.#modalShown) {
+         this.#modalShown = false;
+         document.querySelector(".page .overlay").style.visibility = "hidden";
+         document.querySelector(".page .modal").style.visibility = "hidden";
+         document.querySelector(".page .modal").style.transform = `${this.#mobileMedia.matches ? "translateX(-150%)" : "translateX(-150%) translateY(-50%)"}`
+         document.querySelector(".page .overlay").style.opacity = 0;
+         document.querySelector(".page .menu")?.remove();
+      }
+   }
+   #addCartToModal() {
+      function handleImageSrc(src) { return (this.#mobileMedia.matches ? src.replace("-mobile", "-thumbnail") : src.replace("-desktop", "-thumbnail")) }
+
+      this.#desserts.forEach((des, i) => {
+         if (i == 0) {
+            const menuHTML = ` <div class="menu">
+            <div class="totalPrice">
+            <p>Order Total</p>
+            <h2>$${this.#totalPrice.toFixed(2)}</h2>
+          </div></div>`;
+            document.querySelector(".page .modal .text").insertAdjacentHTML('afterend', menuHTML);
+            this.#confirmPrice = document.querySelector(".page .modal .menu .totalPrice");
+         }
+         const itemHTML = `<div class="item">
+            <div class="discription">
+              <img src="${handleImageSrc.call(this, des.imageSrc)}" />
+              <h2>${des.name}</h2>
+              <div class="info">
+                <h3>${des.number}×</h3>
+                <p>@$${des.price.toFixed(2)}</p>
+              </div>
+            </div>
+            <p class="total">$${des.total.toFixed(2)}</p>
+          </div>`;
+         this.#confirmPrice.insertAdjacentHTML('beforebegin', itemHTML);
+
+      })
+   }
+
+
    #changeX(e) {
       if (!e.target.classList.contains("delete")) return;
       e.target.classList.toggle("selected")
@@ -70,7 +126,7 @@ class App {
             if (!this.#cartHidden)
                this.#addFirstElement(number * price)
 
-            this.#addtoCart(name, price);
+            this.#addtoCart(name, price, buyBtn.closest('.image-container').querySelector(".food").src);
          }
          //` Increaes / Decrease
          else if (e.target.classList.contains("increase")) {
@@ -146,9 +202,9 @@ class App {
       this.#cartHidden = true;
    }
 
-   #addtoCart(name, price) {
+   #addtoCart(name, price, imageSrc) {
 
-      this.#desserts.push(new dessert(name, price, 1));
+      this.#desserts.push(new dessert(name, price, 1, imageSrc));
       const html = `
             <div class="element ${name.split(" ").join('-')}">
               <h3>${name}</h3>

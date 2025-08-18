@@ -20,6 +20,7 @@
     --Rose900: hsl(14, 65%, 9%);
 }
 
+
 @font-face {
     font-family: "Red Hat Text";
     src: url(./assets/fonts/RedHatText-VariableFont_wght.ttf);
@@ -71,6 +72,7 @@ body {
 /* End General */
 .page {
     margin: 60px;
+    position: relative;
 }
 
 .container {
@@ -371,6 +373,7 @@ body {
 }
 
 .container .cart .confirm {
+    cursor: pointer;
     margin: 20px auto 0;
     font-size: 16px;
     padding: 15px;
@@ -388,3 +391,167 @@ body {
 }
 
 /*` End Cart */
+
+/*` Start Modal*/
+.page .modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-150%) translateY(-50%);
+    z-index: 2;
+    background-color: var(--Rose50);
+    border-radius: 7px;
+    padding: 22px;
+    width: 415px;
+    visibility: hidden;
+    max-width: 100%;
+    transition: transform 0.5s;
+}
+
+.page .modal .tick {
+    width: 40px;
+
+}
+
+.page .modal .text {
+    margin: 15px auto
+}
+
+.page .modal .text h2 {
+    margin-bottom: 7px;
+    color: var(--Rose900);
+    font-size: 30px;
+}
+
+.page .modal .text p {
+    color: var(--Rose500);
+    font-size: 14px;
+}
+
+.page .modal .menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.page .modal .menu .item {
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    background-color: var(--Rose100);
+    border-bottom: var(--Rose300) 0.5px solid;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page .modal .menu .item .discription {
+    display: grid;
+    column-gap: 15px;
+    grid-template-areas: "image header" "image info";
+    align-items: center;
+}
+
+.page .modal .menu .item .discription img {
+    width: 40px;
+    grid-area: image;
+
+}
+
+.page .modal .menu .item .discription h2 {
+    grid-area: header;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+.page .modal .menu .item .discription .info {
+    grid-area: info;
+    display: flex;
+}
+
+.page .modal .menu .item .discription .info h3 {
+    color: var(--Red);
+    font-size: 12px;
+}
+
+.page .modal .menu .item .discription .info p {
+    font-size: 12px;
+    margin-left: 10px;
+    color: var(--Rose500);
+}
+
+.page .modal .menu .item .total {
+    font-weight: 600;
+    font-size: 13px;
+}
+
+
+.page .modal .menu .totalPrice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--Rose100);
+    height: 65px;
+    padding: 20px;
+}
+
+.page .modal .menu .totalPrice p {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--Rose500);
+}
+
+.page .modal .menu .totalPrice h2 {
+    font-size: 18px;
+}
+
+.page .modal form {
+    display: flex;
+}
+
+.page .modal .newOrder {
+    margin: 30px auto 8px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: var(--Red);
+    color: var(--Rose100);
+    border-color: transparent;
+    cursor: pointer;
+}
+
+/*` End Modal*/
+
+
+/*` Start Overlay*/
+.page .overlay {
+    z-index: 1;
+    backdrop-filter: blur(3.1px);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(56, 55, 55, 0.36);
+    /* transition: opacity backdrop-filter 0.5s */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.7s;
+}
+
+
+/*` End Overlay*/
+/* @media (max-width: 1095px) {
+    .page {
+        margin: 30px 30px;
+    }
+} */
+@media (max-width: 576px) {
+    .page .modal {
+        /* position: relative; */
+        top: 59px;
+        width: 100vw;
+        transform: translateX(-150%);
+        max-width: none;
+        /* height: calc(100vh - 59px); */
+    }
+}
